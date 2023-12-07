@@ -71,7 +71,7 @@ resource "aws_instance" "t2_micro_standalone" {
   }
 }
 
-/*resource "aws_instance" "t2_micro_manager" {
+resource "aws_instance" "t2_micro_manager" {
   ami                    = "ami-0fc5d935ebf8bc3bc"  # Ubuntu 20.04 LTS image ID in us-east-1 region
   instance_type          = "t2.micro"
   key_name               = "final_project"
@@ -83,7 +83,7 @@ resource "aws_instance" "t2_micro_standalone" {
     Name = "manager"
   }
 }
-
+/*
 resource "aws_instance" "t2_micro_worker" {
   ami                    = "ami-0fc5d935ebf8bc3bc"  # Ubuntu 20.04 LTS image ID in us-est-2 region
   instance_type          = "t2.micro"
