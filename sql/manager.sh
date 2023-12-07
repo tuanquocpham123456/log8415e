@@ -21,7 +21,8 @@ echo "
 ndbcluster
 datadir=/opt/mysqlcluster/deploy/mysqld_data
 basedir=/opt/mysqlcluster/home/mysqlc
-port=3306" | sudo tee -a my.cnf
+[mysql_cluster]
+ndb-connectstring=ip-172-31-17-1.ec2.internal" | sudo tee -a my.cnf
 
 echo "
 [ndb_mgmd]
@@ -43,14 +44,13 @@ nodeid=4
 [mysqld]
 nodeid=50" | sudo tee -a config.ini
 
-sudo /opt/mysqlcluster/home/mysqlc/bin/ndb_mgmd -f /opt/mysqlcluster/deploy/conf/config.ini --initial --configdir=/opt/mysqlcluster/deploy/conf/
+cd /opt/mysqlcluster/home/mysqlc/bin/
 
-cd /home
+sudo ./ndb_mgmd -f /opt/mysqlcluster/deploy/conf/config.ini --initial --configdir=/opt/mysqlcluster/deploy/conf
 
 # Install sakila
 sudo wget https://downloads.mysql.com/docs/sakila-db.tar.gz
 sudo tar -xvzf sakila-db.tar.gz
-sudo cp -r sakila-db /home/
 
 # Populate database structure
 sudo mysql -u root -e "SOURCE /home/sakila-db/sakila-schema.sql;"
