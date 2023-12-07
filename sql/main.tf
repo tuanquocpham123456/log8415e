@@ -1,8 +1,8 @@
 provider "aws" {
   region     = "us-east-1"
-  access_key = ""
-  secret_key = ""
-  token      = ""
+  access_key = "ASIAXM3UIMQSFV5JGPC3"
+  secret_key = "tak9jMlRMSP6H3PpAe9t/A1opOVuBj3H4pU/nUYn"
+  token      = "FwoGZXIvYXdzEFQaDOXIoZnaDm5SN3/MEyLKATaVX50wD3QXKUzYbxd6uGna/w4Ud9mZDjV5LrE9/XVli6NCNFWp/DQG8H1U8QbocNIGlDGxq9pQWvEMxxj8kY2PpQK0IhINnD08esVvAYWjmP0jf+jRlZw3lCpfpVAi+9joIDUSDT7IKZtOyyHwxdYEvB5qMx2mYJh5f1iSZxWXvEGFVoKKa5/HDgTOxmZmTGcWLiI63zeHmo4rNpc+UB2bu6Fn2W/Tmmwt4Ihvewo7mATTrObqhb/KzPwYPpUHDA8egwoPFeCOz2cojZvIqwYyLRxCtXsfZlhJF862UN1rsLHNMWEymHiBSA/onjnv2vTJ36O5zJMLxOhA/wwLCA=="
 }
 
 data "aws_vpc" "default" {
@@ -66,7 +66,6 @@ resource "aws_instance" "t2_micro_standalone" {
   subnet_id              = "subnet-0cf73552fbe274b6b"
   count                  = 1
   private_ip             = "172.31.17.141"
-  user_data              = file("standalone.sh")
   tags                   = {
     Name = "t2_micro_sql_standalone"
   }
@@ -79,7 +78,6 @@ resource "aws_instance" "t2_micro_standalone" {
   vpc_security_group_ids = [aws_security_group.final_security_group.id]
   subnet_id              = "subnet-0cf73552fbe274b6b"
   private_ip             = "172.31.17.1"
-  user_data              = file("manager.sh")
   count                  = 1
   connection {
     type        = "ssh"
