@@ -2,7 +2,7 @@
 sudo apt-get update
 sudo apt-get install -y libncurses5 sysbench
 
-sudo mkdir -p /opt/mysqlcluster/home
+mkdir -p /opt/mysqlcluster/home
 cd /opt/mysqlcluster/home
 wget http://dev.mysql.com/get/Downloads/MySQL-Cluster-7.2/mysql-cluster-gpl-7.2.1-linux2.6-x86_64.tar.gz
 tar xvf mysql-cluster-gpl-7.2.1-linux2.6-x86_64.tar.gz
@@ -22,7 +22,7 @@ echo "
 ndbcluster
 datadir=/opt/mysqlcluster/deploy/mysqld_data
 basedir=/opt/mysqlcluster/home/mysqlc
-port=3306" | tee -a my.cnf
+port=3306" | sudo tee -a my.cnf
 
 echo "
 [ndb_mgmd]
@@ -42,7 +42,7 @@ nodeid=3
 hostname=ip-172-31-17-4.ec2.internal
 nodeid=4
 [mysqld]
-nodeid=50" | tee -a config.ini
+nodeid=50" | sudo tee -a config.ini
 
 
 sudo /opt/mysqlcluster/home/mysqlc/bin/ndb_mgmd -f /opt/mysqlcluster/deploy/conf/config.ini --initial -- configdir=/opt/mysqlcluster/deploy/conf/
