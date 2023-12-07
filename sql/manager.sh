@@ -44,6 +44,9 @@ nodeid=4
 [mysqld]
 nodeid=50" | sudo tee -a config.ini
 
+sudo systemctl restart mysql   # Restart MySQL to pick up the new config
+sudo systemctl enable mysql   # Enable MySQL to start on boot
+
 cd /opt/mysqlcluster/home/mysqlc/bin/
 
 sudo ./ndb_mgmd -f /opt/mysqlcluster/deploy/conf/config.ini --initial --configdir=/opt/mysqlcluster/deploy/conf
