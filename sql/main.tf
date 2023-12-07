@@ -79,12 +79,6 @@ resource "aws_instance" "t2_micro_standalone" {
   subnet_id              = "subnet-0cf73552fbe274b6b"
   private_ip             = "172.31.17.1"
   count                  = 1
-  connection {
-    type        = "ssh"
-    user        = "ec2-user"
-    private_key = "${file("final_project.pem")}"
-    host        = "${self.private_ip}"
-  }
   tags = {
     Name = "manager"
   }
