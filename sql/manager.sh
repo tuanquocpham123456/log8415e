@@ -48,9 +48,9 @@ sudo /opt/mysqlcluster/home/mysqlc/bin/ndb_mgmd -f /opt/mysqlcluster/deploy/conf
 cd /home
 
 # Install sakila
-wget https://downloads.mysql.com/docs/sakila-db.tar.gz
-tar -xvzf sakila-db.tar.gz
-cp -r sakila-db /home/
+sudo wget https://downloads.mysql.com/docs/sakila-db.tar.gz
+sudo tar -xvzf sakila-db.tar.gz
+sudo cp -r sakila-db /home/
 
 # Populate database structure
 sudo mysql -u root -e "SOURCE /home/sakila-db/sakila-schema.sql;"
