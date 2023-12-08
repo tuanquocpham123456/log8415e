@@ -1,6 +1,6 @@
 # Install apps
 sudo apt-get update
-sudo apt-get install -y libncurses5 sysbench mysql-client-core-8.0
+sudo apt-get install -y libncurses5 sysbench mysql-client-core-8.0 mysql-server
 
 # Set up MySQL Cluster
 sudo mkdir -p /opt/mysqlcluster/home
