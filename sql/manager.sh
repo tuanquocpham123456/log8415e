@@ -1,6 +1,6 @@
 # Install apps
 sudo apt-get update
-sudo apt-get install -y libncurses5 sysbench
+sudo apt-get install -y libncurses5 sysbench mysql-client-core-8.0
 
 # Set up MySQL Cluster
 sudo mkdir -p /opt/mysqlcluster/home
@@ -55,6 +55,7 @@ sudo ./ndb_mgmd -f /opt/mysqlcluster/deploy/conf/config.ini --initial --configdi
 # Install sakila
 sudo wget https://downloads.mysql.com/docs/sakila-db.tar.gz
 sudo tar -xvzf sakila-db.tar.gz
+sudo cp -r sakila-db /home/
 
 # Populate database structure
 sudo mysql -u root -e "SOURCE /home/sakila-db/sakila-schema.sql;"
