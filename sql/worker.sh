@@ -11,4 +11,4 @@ echo "export PATH=\$MYSQLC_HOME/bin:\$PATH" | sudo tee -a /etc/profile.d/mysqlc.
 source /etc/profile.d/mysqlc.sh
 sudo mkdir -p /opt/mysqlcluster/deploy/ndb_data
 
-ndbd -c ip-172-31-17-1.ec2.internal:1186
+sudo ndbd -c ip-172-31-17-1.ec2.internal:1186
