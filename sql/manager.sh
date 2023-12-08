@@ -44,6 +44,8 @@ nodeid=4
 [mysqld]
 nodeid=50" | sudo tee -a config.ini
 
+sudo service mysql restart
+
 cd /opt/mysqlcluster/home/mysqlc
 
 sudo scripts/mysql_install_db --no-defaults --datadir=/opt/mysqlcluster/deploy/mysqld_data
