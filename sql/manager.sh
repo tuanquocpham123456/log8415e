@@ -20,9 +20,7 @@ echo "
 [mysqld]
 ndbcluster
 datadir=/opt/mysqlcluster/deploy/mysqld_data
-basedir=/opt/mysqlcluster/home/mysqlc
-[mysql_cluster]
-ndb-connectstring=ip-172-31-17-1.ec2.internal" | sudo tee -a my.cnf
+basedir=/opt/mysqlcluster/home/mysqlc" | sudo tee -a my.cnf
 
 echo "
 [ndb_mgmd]
