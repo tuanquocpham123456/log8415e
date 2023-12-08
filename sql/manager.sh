@@ -42,7 +42,7 @@ nodeid=3
 hostname=ip-172-31-17-4.ec2.internal
 nodeid=4
 [mysqld]
-nodeid=50" | sudo tee -a config.ini
+hostname=ip-172-31-17-1.ec2.internal" | sudo tee -a config.ini
 
 
 cd /opt/mysqlcluster/home/mysqlc
