@@ -53,7 +53,7 @@ WantedBy=multi-user.target" | sudo tee -a /etc/systemd/system/ndb_mgmd.service
 
 sudo systemctl daemon-reload
 sudo systemctl enable ndb_mgmd
-sudo systemctl enable ndb_mgmd
+sudo systemctl start ndb_mgmd
 sudo systemctl status ndb_mgmd
 
 # Set up MySQL Cluster
