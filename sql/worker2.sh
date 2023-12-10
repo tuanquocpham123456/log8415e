@@ -8,7 +8,7 @@ sudo dpkg -i mysql-cluster-community-data-node_7.6.6-1ubuntu18.04_amd64.deb
 echo "
 [mysql_cluster]
 # Options for NDB Cluster processes:
-ndb-connectstring=172.31.17.1" | sudo tee -a /etc/my.cnf
+ndb-connectstring=ip-172-31-17-1.ec2.internal" | sudo tee -a /etc/my.cnf
 
 sudo mkdir -p /usr/local/mysql/data
 

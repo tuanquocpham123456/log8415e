@@ -14,27 +14,27 @@ NoOfReplicas=3	# Number of replicas
 
 [ndb_mgmd]
 # Management process options:
-hostname=172.31.17.1 # Hostname of the manager
+hostname=ip-172-31-17-1.ec2.internal # Hostname of the manager
 datadir=/var/lib/mysql-cluster 	# Directory for the log files
 
 [ndbd]
-hostname=172.31.17.2 # Hostname/IP of the first data node
+hostname=ip-172-31-17-2.ec2.internal # Hostname/IP of the first data node
 NodeId=2			# Node ID for this data node
 datadir=/usr/local/mysql/data	# Remote directory for the data files
 
 [ndbd]
-hostname=172.31.17.3 # Hostname/IP of the second data node
+hostname=ip-172-31-17-3.ec2.internal # Hostname/IP of the second data node
 NodeId=3			# Node ID for this data node
 datadir=/usr/local/mysql/data	# Remote directory for the data files
 
 [ndbd]
-hostname=172.31.17.4 # Hostname/IP of the third data node
+hostname=ip-172-31-17-4.ec2.internal # Hostname/IP of the third data node
 NodeId=4			# Node ID for this data node
 datadir=/usr/local/mysql/data	# Remote directory for the data files
 
 [mysqld]
 # SQL node options:
-hostname=172.31.17.1" | sudo tee -a /var/lib/mysql-cluster/config.ini
+hostname=ip-172-31-17-1.ec2.internal" | sudo tee -a /var/lib/mysql-cluster/config.ini
 
 echo "
 [Unit]
@@ -76,7 +76,7 @@ ndbcluster                      # run NDB storage engine
 
 [mysql_cluster]
 # Options for NDB Cluster processes:
-ndb-connectstring=172.31.17.1" | sudo tee -a /etc/mysql/my.cnf
+ndb-connectstring=ip-172-31-17-1.ec2.internal" | sudo tee -a /etc/mysql/my.cnf
 
 sudo systemctl restart mysql
 sudo systemctl enable mysql
