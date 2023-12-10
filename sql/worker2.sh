@@ -5,15 +5,13 @@ cd ~
 wget https://dev.mysql.com/get/Downloads/MySQL-Cluster-7.6/mysql-cluster-community-data-node_7.6.6-1ubuntu18.04_amd64.deb
 sudo dpkg -i mysql-cluster-community-data-node_7.6.6-1ubuntu18.04_amd64.deb
 
-echo "
-[mysql_cluster]
+echo "[mysql_cluster]
 # Options for NDB Cluster processes:
 ndb-connectstring=ip-172-31-17-1.ec2.internal" | sudo tee -a /etc/my.cnf
 
 sudo mkdir -p /usr/local/mysql/data
 
-echo "
-[Unit]
+echo "[Unit]
 Description=MySQL NDB Data Node Daemon
 After=network.target auditd.service
 
