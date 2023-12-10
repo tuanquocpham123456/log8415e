@@ -28,4 +28,3 @@ WantedBy=multi-user.target" | sudo tee -a /etc/systemd/system/ndbd.service
 sudo systemctl daemon-reload
 sudo systemctl enable ndbd
 sudo systemctl start ndbd
-sudo systemctl status ndbd
