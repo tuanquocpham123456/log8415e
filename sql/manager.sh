@@ -1,4 +1,4 @@
-#Source for this script : https://www.digitalocean.com/community/tutorials/how-to-create-a-multi-node-mysql-cluster-on-ubuntu-18-04
+#Reference for this script : https://www.digitalocean.com/community/tutorials/how-to-create-a-multi-node-mysql-cluster-on-ubuntu-18-04
 sudo apt-get update
 sudo apt-get install -y libncurses5 sysbench libaio1 libmecab2
 

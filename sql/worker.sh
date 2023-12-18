@@ -1,3 +1,4 @@
+#Reference for this script : https://www.digitalocean.com/community/tutorials/how-to-create-a-multi-node-mysql-cluster-on-ubuntu-18-04
 sudo apt update
 sudo apt install libclass-methodmaker-perl
 
