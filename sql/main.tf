@@ -57,7 +57,13 @@ resource "aws_security_group" "final_security_group" {
   ingress {
     from_port        = 1186
     to_port          = 1186
-    protocol         = "-1"
+    protocol         = "tcp"
+    cidr_blocks      = ["172.31.16.0/20"]
+  }
+  ingress {
+    from_port        = 3306
+    to_port          = 3306
+    protocol         = "tcp"
     cidr_blocks      = ["172.31.16.0/20"]
   }
 
@@ -107,5 +113,31 @@ resource "aws_instance" "t2_micro_worker" {
   count                  = 3
   tags = {
     Name = "worker-${count.index + 1}"
+  }
+}
+
+resource "aws_instance" "t2_large_proxy" {
+  ami                    = "ami-0fc5d935ebf8bc3bc"  # Ubuntu 20.04 LTS image ID in us-east-1 region
+  instance_type          = "t2.large"
+  key_name               = "final_project"
+  vpc_security_group_ids = [aws_security_group.final_security_group.id]
+  subnet_id              = "subnet-0cf73552fbe274b6b"
+  private_ip             = "172.31.17.20"
+  count                  = 1
+  tags = {
+    Name = "proxy"
+  }
+}
+
+resource "aws_instance" "t2_large_gatekeeper" {
+  ami                    = "ami-0fc5d935ebf8bc3bc"  # Ubuntu 20.04 LTS image ID in us-east-1 region
+  instance_type          = "t2.large"
+  key_name               = "final_project"
+  vpc_security_group_ids = [aws_security_group.final_security_group.id]
+  subnet_id              = "subnet-0cf73552fbe274b6b"
+  private_ip             = "172.31.17.21"
+  count                  = 1
+  tags = {
+    Name = "gatekeeper"
   }
 }
