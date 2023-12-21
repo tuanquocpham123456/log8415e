@@ -24,4 +24,4 @@ sudo iptables -A OUTPUT -p tcp -m multiport --dports 80,443 -m conntrack --ctsta
 sudo netfilter-persistent save
 
 # Run the gatekeeper.py script
-python3 gatekeeper.py
+sudo python3 gatekeeper.py
