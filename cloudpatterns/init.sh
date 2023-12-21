@@ -1,5 +1,3 @@
-#!/bin/bash
-
 # Update the package lists for upgrades and new package installations
 sudo apt-get update
 # Install Python3 and pip3
