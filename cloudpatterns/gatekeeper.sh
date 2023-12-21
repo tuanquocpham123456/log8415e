@@ -1,8 +1,8 @@
 # Install Uncomplicated Firewall
-sudo apt-get install ufw
+sudo apt-get install -y ufw
 
 # Install iptables-persistent
-sudo apt install iptables-persistent
+sudo apt install -y iptables-persistent
 
 # Allow only necessary ports
 sudo ufw allow 22

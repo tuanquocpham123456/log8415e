@@ -5,10 +5,10 @@ sudo apt-get update
 sudo apt-get install -y python3 python3-pip
 
 # Install the Flask framework for Python3
-sudo apt install python3-flask
+sudo apt install -y python3-flask
 
 # Install the Python3 virtual environment package
-sudo apt install python3.10-venv
+sudo apt install -y python3.10-venv
 
 # Install the virtualenv package
 pip3 install virtualenv
