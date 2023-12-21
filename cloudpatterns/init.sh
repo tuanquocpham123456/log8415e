@@ -8,7 +8,7 @@ sudo apt-get install -y python3 python3-pip
 sudo apt install python3-flask
 
 # Install the virtualenv package
-sudo pip3 install virtualenv
+pip3 install virtualenv
 
 # Create a virtual environment named 'venv'
 python3 -m venv venv
