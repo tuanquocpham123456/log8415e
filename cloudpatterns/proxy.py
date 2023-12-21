@@ -4,9 +4,9 @@ from pythonping import ping
 from sshtunnel import SSHTunnelForwarder
 from flask import Flask, request
 
-master_node = "34.229.94.119"
-slave_nodes = ["54.90.191.203", "54.90.141.144", "54.83.127.41"]
-gatekeeper_node = "GATEKEEPER_IP_ADDRESS"
+master_node = "3.89.249.57"
+slave_nodes = ["52.55.178.144", "34.201.103.27", "35.175.198.219"]
+gatekeeper_node = "172.31.17.21"
 
 app = Flask(__name__)
 
@@ -65,12 +65,6 @@ def implement_request(node, query):
         cursor.execute(operation)
         print(cursor.fetchall())
         return conn
-
-
-# Test the function
-response = implement_request("direct")
-print(response.status_code)
-print(response.text)
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=80)
