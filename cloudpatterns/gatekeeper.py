@@ -2,7 +2,7 @@ from flask import Flask, request
 import requests
 
 app = Flask(__name__)
-proxy_node = "3.91.197.26"
+proxy_node = "52.90.97.174"
 
 
 @app.route('/endpoint', methods=['GET', 'POST'])
@@ -14,11 +14,11 @@ def handle_request():
     if request.method == 'POST':
         strategy = "write"
         # Forward the request to the Proxy
-        response = requests.post("https://{proxy_node}/endpoint", params={"strategy": strategy}, data=body)
+        response = requests.post(f"https://{proxy_node}/endpoint", params={"strategy": strategy}, data=body)
     else:
         strategy = "read"
         # Forward the request to the Proxy
-        response = requests.get("https://{proxy_node}/endpoint", params={"strategy": strategy}, data=body)
+        response = requests.get(f"https://{proxy_node}/endpoint", params={"strategy": strategy}, data=body)
 
     return response.content
 

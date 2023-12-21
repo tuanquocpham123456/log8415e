@@ -6,7 +6,6 @@ from flask import Flask, request
 
 master_node = "3.89.249.57"
 slave_nodes = ["52.55.178.144", "34.201.103.27", "35.175.198.219"]
-gatekeeper_node = "172.31.17.21"
 
 app = Flask(__name__)
 
@@ -30,7 +29,7 @@ def handle_gatekeeper_request():
 
     # Forward the request to the chosen node
     response = implement_request(node, body)
-
+    response.close()
     return response
 
 

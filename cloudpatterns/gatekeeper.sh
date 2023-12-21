@@ -26,4 +26,4 @@ sudo netfilter-persistent save
 # Activate the virtual environment
 source venv/bin/activate
 # Run the gatekeeper.py script
-python3 gatekeeper.py
+sudo python3 gatekeeper.py
