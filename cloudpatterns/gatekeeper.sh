@@ -23,5 +23,7 @@ sudo iptables -A OUTPUT -p tcp -m multiport --dports 80,443 -m conntrack --ctsta
 # Save IP tables rules
 sudo netfilter-persistent save
 
+# Activate the virtual environment
+source venv/bin/activate
 # Run the gatekeeper.py script
-sudo python3 gatekeeper.py
+python3 gatekeeper.py
