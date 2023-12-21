@@ -17,4 +17,4 @@ python3 -m venv venv
 source venv/bin/activate
 
 # Install Flask, requests, pymysql, pythonping, and sshtunnel Python libraries
-pip install flask requests pymysql pythonping sshtunnel
+pip3 install flask requests pymysql pythonping sshtunnel
