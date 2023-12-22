@@ -58,7 +58,7 @@ def customized():
 def implement_request(node, query):
     with SSHTunnelForwarder(node, ssh_username='ubuntu', ssh_pkey='final_project.pem',
                             remote_bind_address=(master_node, 3306)):
-        conn = pymysql.connect(host=master_node, user='', password='', db='sakila', port=3306, autocommit=True)
+        conn = pymysql.connect(host=master_node, user='ubuntu', password='admin', db='sakila', port=3306, autocommit=True)
         cursor = conn.cursor()
         operation = query
         cursor.execute(operation)

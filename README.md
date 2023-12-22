@@ -19,6 +19,12 @@ It will install Sakila, populate the database structure and run the Sysbench ben
 The first command will setup the MySQL cluster manager.
 The second command will install Sakila, populate the database structure and run the Sysbench benchmark.
 
+After creating the proxy instance, run these commands in order to create a user associated with the proxy instance:
+1. sudo mysql
+2. mysql> CREATE USER 'ubuntu'@'proxy_public_ip_adress' IDENTIFIED BY 'admin';
+3. mysql> GRANT ALL PRIVILEGES ON *.* TO 'ubuntu'@'proxy_public_ip_adress' WITH GRANT OPTION;
+4. mysql> exit
+
 ### On all the MySQL workers
 1. bash worker.sh
 

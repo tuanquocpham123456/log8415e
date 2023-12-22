@@ -71,7 +71,8 @@ sudo dpkg -i mysql-server_7.6.6-1ubuntu18.04_amd64.deb
 echo "
 [mysqld]
 # Options for mysqld process:
-ndbcluster                      # run NDB storage engine
+ndbcluster
+bind-address=0.0.0.0
 
 [mysql_cluster]
 # Options for NDB Cluster processes:
