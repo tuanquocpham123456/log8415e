@@ -1,5 +1,6 @@
 # LOG8415e : Final project
 [Part 1] Demo of my results : https://youtu.be/JhSiSl5i_OE
+
 [Part 2] Code explanation : https://youtu.be/jepVk-Tn0rk
 ## Terraform
 In order to lunch the infrastructure with all the instances, you need to run ```terraform apply``` inside the **log8415e/sql** folder.
