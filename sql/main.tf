@@ -76,37 +76,6 @@ resource "aws_security_group" "final_security_group" {
   }
 }
 
-resource "aws_security_group" "gatekeeper_security_group" {
-  vpc_id      = data.aws_vpc.default.id
-  name        = "gatekeeper_security_group"
-  description = "Gatekeeper security group"
-
-  #SSH use
-  ingress {
-    from_port   = 22
-    to_port     = 22
-    protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"]
-  }
-
-  #HTTP use
-  ingress {
-    from_port   = 80
-    to_port     = 80
-    protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"]
-  }
-
-  #HTTPS use
-  ingress {
-    from_port   = 443
-    to_port     = 443
-    protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"]
-  }
-}
-
-
 resource "aws_instance" "t2_micro_standalone" {
   ami                    = "ami-0fc5d935ebf8bc3bc"  # Ubuntu 20.04 LTS image ID in us-east-1 region
   instance_type          = "t2.micro"
@@ -163,7 +132,7 @@ resource "aws_instance" "t2_large_gatekeeper" {
   ami                    = "ami-0fc5d935ebf8bc3bc"  # Ubuntu 20.04 LTS image ID in us-east-1 region
   instance_type          = "t2.large"
   key_name               = "final_project"
-  vpc_security_group_ids = [aws_security_group.gatekeeper_security_group.id]
+  vpc_security_group_ids = [aws_security_group.final_security_group.id]
   subnet_id              = "subnet-0cf73552fbe274b6b"
   private_ip             = "172.31.17.21"
   count                  = 1

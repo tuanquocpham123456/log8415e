@@ -18,9 +18,9 @@ def handle_gatekeeper_request():
     # Extract the body from the request data
     body = request.get_data(as_text=True)
 
-    if strategy == "write":
+    if strategy == "direct_hit":
         node = direct_hit()
-    elif strategy == "read":
+    elif strategy == "random":
         node = random_node()
     elif strategy == "customized":
         node = customized()
