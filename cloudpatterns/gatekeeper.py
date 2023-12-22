@@ -14,11 +14,11 @@ def handle_request():
     if request.method == 'POST':
         strategy = "write"
         # Forward the request to the Proxy
-        response = requests.post(f"https://{proxy_node}/endpoint", params={"strategy": strategy}, data=body)
+        response = requests.post(f"http://{proxy_node}/endpoint", params={"strategy": strategy}, data=body)
     else:
         strategy = "read"
         # Forward the request to the Proxy
-        response = requests.get(f"https://{proxy_node}/endpoint", params={"strategy": strategy}, data=body)
+        response = requests.get(f"http://{proxy_node}/endpoint", params={"strategy": strategy}, data=body)
 
     return response.content
 
