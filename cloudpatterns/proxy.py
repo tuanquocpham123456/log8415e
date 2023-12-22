@@ -2,7 +2,7 @@ import pymysql
 import random
 from pythonping import ping
 from sshtunnel import SSHTunnelForwarder
-from flask import Flask, request
+from flask import Flask, request, jsonify
 
 master_node = "3.89.249.57"
 slave_nodes = ["52.55.178.144", "34.201.103.27", "35.175.198.219"]
@@ -28,9 +28,8 @@ def handle_gatekeeper_request():
         raise ValueError("Invalid strategy")
 
     # Forward the request to the chosen node
-    response = implement_request(node, body)
-    response.close()
-    return response
+    result = implement_request(node, body)
+    return jsonify(result)
 
 
 def direct_hit():
@@ -62,8 +61,10 @@ def implement_request(node, query):
         cursor = conn.cursor()
         operation = query
         cursor.execute(operation)
-        print(cursor.fetchall())
-        return conn
+        result = cursor.fetchall()
+        print(result)
+        conn.close()
+        return result
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=80)

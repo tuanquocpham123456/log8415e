@@ -23,6 +23,7 @@ After creating the proxy instance, run these commands in order to create a user 
 1. sudo mysql
 2. mysql> CREATE USER 'ubuntu'@'proxy_public_ip_adress' IDENTIFIED BY 'admin';
 3. mysql> GRANT ALL PRIVILEGES ON *.* TO 'ubuntu'@'proxy_public_ip_adress' WITH GRANT OPTION;
+4. mysql> FLUSH PRIVILEGES;
 4. mysql> exit
 
 ### On all the MySQL workers

@@ -80,3 +80,12 @@ ndb-connectstring=ip-172-31-17-1.ec2.internal" | sudo tee -a /etc/mysql/my.cnf
 
 sudo systemctl restart mysql
 sudo systemctl enable mysql
+
+# Install sakila
+sudo wget https://downloads.mysql.com/docs/sakila-db.tar.gz
+sudo tar -xvzf sakila-db.tar.gz
+sudo cp -r sakila-db /home/
+
+# Populate database structure
+sudo mysql -u root -e "SOURCE /home/sakila-db/sakila-schema.sql;"
+sudo mysql -u root -e "SOURCE /home/sakila-db/sakila-data.sql;"
