@@ -1,5 +1,6 @@
 # LOG8415e : Final project
-
+[Part 1] Demo of my results : https://youtu.be/JhSiSl5i_OE
+[Part 2] Code explanation : https://youtu.be/jepVk-Tn0rk
 ## Terraform
 In order to lunch the infrastructure with all the instances, you need to run ```terraform apply``` inside the **log8415e/sql** folder.
 
@@ -47,3 +48,10 @@ In order to run the proxy pattern, you need to run the following commands inside
 
 ## SQL queries
 Open the Postman app in order to run the SQL queries as a body of a POST or GET request with the gatekeeper public ip adress.
+Don't forget to add a code inside a form-data which represents :
+- 1 for a direct hit
+- 2 for random
+- 3 for customized
+
+Here is an example of a POST request with the body of the query:
+![img.png](img.png)
