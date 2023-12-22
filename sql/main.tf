@@ -58,13 +58,13 @@ resource "aws_security_group" "final_security_group" {
     from_port        = 1186
     to_port          = 1186
     protocol         = "tcp"
-    cidr_blocks      = ["::/0"]
+    cidr_blocks      = ["0.0.0.0/0"]
   }
   ingress {
     from_port        = 3306
     to_port          = 3306
     protocol         = "tcp"
-    cidr_blocks      = ["::/0"]
+    cidr_blocks      = ["0.0.0.0/0"]
   }
 
   egress {
